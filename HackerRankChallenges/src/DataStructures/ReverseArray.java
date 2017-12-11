@@ -30,8 +30,8 @@ public class ReverseArray {
     }
     
     public static int[] createArray(int n, String numbers){
-        String[] temp = new String[n];
-        temp = numbers.split(" ");
+        //String[] temp = new String[n];
+        String[] temp = numbers.split(" ");
         
         //System.out.println(Arrays.toString(temp));
         int[] array = new int[n];
