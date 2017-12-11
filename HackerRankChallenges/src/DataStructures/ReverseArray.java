@@ -50,6 +50,10 @@ public class ReverseArray {
     
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        
+//Note: If you use the nextLine() method immediately following the nextInt() method, recall that nextInt() reads integer tokens; because of this, the last newline character for that line of integer input is still queued in the input buffer and the next nextLine() will be reading the remainder of the integer line (which is empty).Note: If you use the nextLine() method immediately following the nextInt() method, recall that nextInt() reads integer tokens; because of this, the last newline character for that line of integer input is still queued in the input buffer and the next nextLine() will be reading the remainder of the integer line (which is empty).
+    
+        //^^TL;DR: if you don't use the delimeter, scan.next() won't take all the numbers in the next line
         Scanner scan = new Scanner(System.in).useDelimiter("\\n");
         //take in input of first line (N, the number of elements in array)
         //System.out.println("Enter n size for array");
