@@ -12,11 +12,11 @@ import java.util.regex.*;
  * @author Vivian Leung
  */
 public class ArrayManipulation {
-    public static int[] arrayIntegers;
+    public static long[] arrayIntegers;
     
     public static void printMaxInArray(){
-        int max = arrayIntegers[0];
-            for(int i: arrayIntegers){
+        long max = arrayIntegers[0];
+            for(long i: arrayIntegers){
                 if(i>max){
                     max = i;
                 }
@@ -24,18 +24,23 @@ public class ArrayManipulation {
         System.out.println(max);
         }
 
-    public static int[] createIntArray(int n){
-        int[] array = new int[n];
+    public static long[] createIntArray(int n){
+        long[] array = new long[n];
         //initialize every element to be zero
-        for(int i: array){
-            array[i] = 0;
+        for(long i: array){
+            i = 0;
         }
         return array;
     }
     
-    public static void updateArray(int a, int b, int k){
-        for(int i=a-1; i<b; i++){
+    public static void updateArray(int a, int b, long k){
+        if(a>=1 && b<=arrayIntegers.length){
+            for(int i=a-1; i<b; i++){
             arrayIntegers[i] += k;
+        }
+        }
+        else{
+            System.out.println("invalid; a must be greater than 0 & b must be less than or equal to n elements");
         }
     }
     
@@ -54,12 +59,11 @@ public class ArrayManipulation {
         for(int a0 = 0; a0 < m; a0++){
             int a = in.nextInt();
             int b = in.nextInt();
-            int k = in.nextInt();
+            long k = in.nextLong();
             updateArray(a, b, k);
         }
         in.close();
         //System.out.println(Arrays.toString(arrayIntegers));
         printMaxInArray();
     }
-    
 }
