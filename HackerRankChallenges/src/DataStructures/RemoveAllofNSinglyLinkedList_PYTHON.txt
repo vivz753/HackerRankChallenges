@@ -1,0 +1,85 @@
+class Node(object):
+
+    def __init__(self, val=None, next_node=None):
+        self.val = val
+        self.next_node = next_node
+
+    def get_data(self):
+        return self.val
+
+    def get_next(self):
+        return self.next_node
+
+
+class LinkedList(object):
+  def __init__(self, head=None):
+        self.head = head
+        
+  def printNode(self):
+       curr = self.head
+       while curr:
+           print(curr.val)
+           curr = curr.get_next()
+           
+  def addNode(self, val):
+    tmp = self.head
+    n = Node(val)
+    while tmp.next_node != None:
+      tmp = tmp.next_node
+    tmp.next_node = n
+           
+  def remove_all_n(self, head, n):
+    tmp = head
+    
+    while tmp.next_node!= None:
+      if tmp == head:
+        print('head value' + str(head.val))
+        if head.val == n:
+          self.head = tmp.next_node
+          print('new head value' + str(head.val))
+          
+          
+      
+      
+        prev = tmp
+        print('prev' + str(prev.val))
+        tmp = tmp.next_node
+        print('tmp' + str(tmp.val))
+    
+      elif tmp.val == n:
+        prev.next_node = tmp.next_node
+        tmp = tmp.next_node
+      
+      elif tmp.val != n:
+        prev = tmp
+        tmp = tmp.next_node
+    
+  #if last node is 3
+    if tmp.val == n:
+      prev.next_node = None
+    
+x = Node(3)
+
+
+llist = LinkedList(x)
+nodes = llist.head.next_node
+
+llist.addNode(0)
+for i in range (1,10):
+  llist.addNode(i)
+
+llist.addNode(3)
+llist.addNode(0)
+llist.addNode(3)
+llist.addNode(3)
+llist.addNode(99)
+llist.addNode(1000)
+
+llist.printNode()
+llist.remove_all_n(llist.head, 3)
+print('\nprinting')
+llist.printNode()
+
+
+    
+  
